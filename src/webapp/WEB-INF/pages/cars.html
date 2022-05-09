@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cars</title>
+</head>
+<body>
+<div  th:with="intList = ${ {1, 2, 3, 4, 5} }">
+    BbIBeDu
+    <a th:each="c : ${intList}" th:href="@{/cars(count=${c})}" th:text="|&nbsp;${c}&nbsp;|"/>
+    <a th:href="@{/cars}" th:text="All"/>
+</div>
+<div th:each="car : ${cars}" >
+    <div class="card-header" th:text="${car.getModel()}"/>
+    <ul>
+        <li  th:text="|Color: ${car.getColor()}|"/>
+        <li  th:text="|Year: ${car.getYear()}|"/>
+    </ul>
+</div>
+</body>
+</html>
